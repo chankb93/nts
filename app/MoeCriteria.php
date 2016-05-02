@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoeCriteria extends Model
 {
-    //protected $table = 'napfacriteria';
-    //protected $fillable = array('gender', 'dec');
+    //protected $table = 'moe_criterias';
+
     public function moeAge()
     {
       return $this->belongsTo('App\MoeAge');

@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NapfaDate extends Model
 {
-    //protected $table = 'napfadates';
-    //protected $fillable = array('school_id', 'regOpenDate', 'regCloseDate', 'testDate', 'venue', 'regMax', 'bidNumStart', 'stations');
+    //protected $table = 'napfa_dates';
 
     protected $casts = [
       'stations' => 'array',

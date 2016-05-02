@@ -23,4 +23,36 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function isStudent()
+    {
+      $returnVal = false;
+      if ($this->attributes['systemrole'] == 'P') {
+        $returnVal = true;
+      }
+
+      return $returnVal;
+    }
+
+    public function isStaff()
+    {
+      $returnVal = false;
+      if ($this->attributes['systemrole'] == 'S') {
+        $returnVal = true;
+      }
+
+      return $returnVal;
+    }
+
+    public function isInstructor()
+    {
+      $returnVal = false;
+      if ($this->attributes['systemrole'] == 'I') {
+        $returnVal = true;
+      }
+      
+      return $returnVal;
+    }
+
 }
