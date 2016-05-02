@@ -92,7 +92,7 @@ class CreateNapfaDatesTable extends Migration
             $table->string('gender');
             $table->string('dateOfBirth');
             $table->string('email');
-            $table->integer('bidnum');
+            $table->integer('bidNum');
             $table->timestamps();
         });
 
@@ -104,6 +104,8 @@ class CreateNapfaDatesTable extends Migration
 
         Schema::create('view_registers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('napfa_date_id');
+            $table->foreign('napfa_date_id')->references('id')->on('napfadates');
             $table->integer('book_test_id');
             $table->foreign('book_test_id')->references('id')->on('booktests');
             $table->string('date');
@@ -115,6 +117,15 @@ class CreateNapfaDatesTable extends Migration
             $table->string('gender');
             $table->string('email');
             $table->string('message');
+            $table->timestamps();
+        });
+
+        Schema::create('display_sections', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('pBand');
+            $table->string('pGrade');
+            $table->string('moePoint');
+            $table->string('mindefPoint');
             $table->timestamps();
         });
     }
@@ -138,5 +149,6 @@ class CreateNapfaDatesTable extends Migration
         Schema::drop('BookTests');
         Schema::drop('Supports');
         Schema::drop('ViewRegisters');
+        Schema::drop('DisplaySections');
     }
 }
