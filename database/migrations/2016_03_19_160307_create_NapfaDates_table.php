@@ -85,6 +85,7 @@ class CreateNapfaDatesTable extends Migration
           $table->timestamps();
       });
 
+<<<<<<< HEAD
       Schema::create('book_tests', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('napfa_date_id');
@@ -95,6 +96,18 @@ class CreateNapfaDatesTable extends Migration
           $table->integer('bidnum');
           $table->timestamps();
       });
+=======
+        Schema::create('book_tests', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('napfa_date_id');
+            $table->foreign('napfa_date_id')->references('id')->on('napfadates');
+            $table->string('gender');
+            $table->string('dateOfBirth');
+            $table->string('email');
+            $table->integer('bidNum');
+            $table->timestamps();
+        });
+>>>>>>> origin/master
 
       Schema::create('supports', function (Blueprint $table) {
           $table->increments('id');
@@ -102,6 +115,7 @@ class CreateNapfaDatesTable extends Migration
           $table->timestamps();
       });
 
+<<<<<<< HEAD
       Schema::create('view_registers', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('book_test_id');
@@ -117,6 +131,34 @@ class CreateNapfaDatesTable extends Migration
           $table->string('message');
           $table->timestamps();
       });
+=======
+        Schema::create('view_registers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('napfa_date_id');
+            $table->foreign('napfa_date_id')->references('id')->on('napfadates');
+            $table->integer('book_test_id');
+            $table->foreign('book_test_id')->references('id')->on('booktests');
+            $table->string('date');
+            $table->string('school');
+            $table->string('adminNum');
+            $table->string('name');
+            $table->integer('age');
+            $table->string('dateOfBirth');
+            $table->string('gender');
+            $table->string('email');
+            $table->string('message');
+            $table->timestamps();
+        });
+
+        Schema::create('display_sections', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('pBand');
+            $table->string('pGrade');
+            $table->string('moePoint');
+            $table->string('mindefPoint');
+            $table->timestamps();
+        });
+>>>>>>> origin/master
     }
 
 
@@ -138,5 +180,6 @@ class CreateNapfaDatesTable extends Migration
         Schema::drop('BookTests');
         Schema::drop('Supports');
         Schema::drop('ViewRegisters');
+        Schema::drop('DisplaySections');
     }
 }
