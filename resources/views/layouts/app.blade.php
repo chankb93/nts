@@ -81,6 +81,7 @@
     </nav>
 
     @include('common.messages')
+    @include('common.errors')
     @yield('content')
 
     <!-- JavaScripts -->
