@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-    //protected $table = 'schools';
-    //protected $fillable = array('name', 'description');
+    protected $table = 'schools';
 }

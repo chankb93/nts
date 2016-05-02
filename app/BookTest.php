@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookTest extends Model
 {
-    //protected $table = 'napfadates';
-    //protected $fillable = array('school_id', 'regOpenDate', 'regCloseDate', 'testDate', 'venue', 'regMax', 'bidNumStart', 'stations');
+    protected $table = 'book_tests';
 
     public function napfaDate()
     {
