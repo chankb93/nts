@@ -12,6 +12,7 @@ use App\School;
 use Session;
 use Carbon\Carbon;
 use Mail;
+use Auth;
 
 class BookTestController extends Controller
 {
@@ -22,9 +23,11 @@ class BookTestController extends Controller
   */
   public function index()
   {
+    $user = Auth::user();
+
     //Create a blank model
     $bookTest = new BookTest;
-    $bookTests = BookTest::orderBy('id')->get();
+    $bookTests = BookTest::where('users_id', '=', $user->id)->get();
     $napfaDates = NapfaDate::orderBy('regCloseDate', 'testDate', 'venue')->get();
 
     return View::make('booktests.index')
@@ -76,19 +79,25 @@ class BookTestController extends Controller
     }
     else
     { //need to change to max aggregate
-      $napfaDate->bidNumStart = BookTest::table('bookTest')->max('bidNum');
+      $napfaDate->bidNumStart = BookTest::max('bidNum');
       $bookTest->bidNum = $napfaDate->bidNumStart + 1;
     }
 
     $bookTest->gender = Input::get('gender');
     $bookTest->dateOfBirth = Input::get('dateOfBirth');
     $bookTest->email = Input::get('email');
+
+    $user = Auth::user();
+    $bookTest->users_id = $user->id;
+
     $bookTest->save();
+
+/*
     Mail::send('email.verify', function($message) {
         $message->to(Input::get('email'))
         ->subject('Test Information');
     });
-    
+*/
     Session::flash('message', 'Successfully booked test date!');
     return Redirect::to('booktests');
   }
