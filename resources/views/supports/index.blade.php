@@ -20,7 +20,6 @@
             {!! Form::label('description', 'Description:') !!}
             <div class="form-group">
                 {!! Form::textarea('description', null, ['size' => '35x5']) !!}
-
             </div>
 
             <button type="submit" class="btn btn-default">

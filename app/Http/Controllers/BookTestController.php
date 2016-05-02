@@ -11,6 +11,7 @@ use App\NapfaDate;
 use App\School;
 use Session;
 use Carbon\Carbon;
+use Mail;
 
 class BookTestController extends Controller
 {
@@ -38,6 +39,7 @@ class BookTestController extends Controller
   * @param  int  $id
   * @return Response
   */
+
   public function create()
   {
     $napfaDateId = Input::get('napfaDateId');
@@ -73,16 +75,20 @@ class BookTestController extends Controller
       $bookTest->bidNum = $napfaDate->bidNumStart;
     }
     else
-    {
-      $bookTest->bidNum = $bookTestsCount + 1;
+    { //need to change to max aggregate
+      $napfaDate->bidNumStart = BookTest::table('bookTest')->max('bidNum');
+      $bookTest->bidNum = $napfaDate->bidNumStart + 1;
     }
 
     $bookTest->gender = Input::get('gender');
     $bookTest->dateOfBirth = Input::get('dateOfBirth');
     $bookTest->email = Input::get('email');
-
     $bookTest->save();
-
+    Mail::send('email.verify', function($message) {
+        $message->to(Input::get('email'))
+        ->subject('Test Information');
+    });
+    
     Session::flash('message', 'Successfully booked test date!');
     return Redirect::to('booktests');
   }

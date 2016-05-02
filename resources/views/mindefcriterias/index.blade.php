@@ -87,7 +87,7 @@
                         <tr>
                           <!-- Task Name -->
                           <td class="table-text">
-                              <div>{{ $mindefCriteria->mindefage->age }}</div>
+                              <div>{{ $mindefCriteria->mindefAge->age }}</div>
                           </td>
 
                           <td class="table-text">
