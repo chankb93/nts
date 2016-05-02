@@ -56,6 +56,8 @@
                     <li><a href="{{ url('/mindefcriterias') }}">MINDEF Criteria</a></li>
                     <li><a href="{{ url('/booktests') }}">Book Test</a></li>
                     <li><a href="{{ url('/supports') }}">Help Support</a></li>
+                    <li><a href="{{ url('/viewregisters') }}">View Registered Student</a></li>
+                    <li><a href="{{ url('/displaysections') }}">NAPFA Test Result Display</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

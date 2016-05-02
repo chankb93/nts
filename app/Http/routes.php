@@ -40,6 +40,8 @@ Route::group(['middleware' => ['web']], function () {
   Route::resource('mindefcriterias', 'MindefCriteriaController');
   Route::resource('booktests', 'BookTestController');
   Route::resource('supports', 'SupportController');
+  Route::resource('viewregisters', 'ViewRegisterController');
+  Route::resource('displaysections', 'DisplaySectionController');
 
   //Route::get('/home', 'HomeController@index');
 });
