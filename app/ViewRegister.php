@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ViewRegister extends Model
 {
-    protected $table = 'view_registers';
+    //protected $table = 'view_registers';
 
     public function bookTest()
     {

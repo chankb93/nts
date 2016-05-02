@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookTest extends Model
 {
-    protected $table = 'book_tests';
+    //protected $table = 'book_tests';
 
     public function napfaDate()
     {

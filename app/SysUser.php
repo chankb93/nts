@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SysUser extends Model
 {
-    protected $table = 'users';
+    //protected $table = 'users';
 }

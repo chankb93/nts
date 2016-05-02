@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MindefCriteria extends Model
 {
-    protected $table = 'mindef_criterias';
+    //protected $table = 'mindef_criterias';
 
     public function mindefAge()
     {

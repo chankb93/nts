@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoeAge extends Model
 {
-    protected $table = 'moe_age';
+    //protected $table = 'moe_age';
 }

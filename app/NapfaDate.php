@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NapfaDate extends Model
 {
-    protected $table = 'napfa_dates';
+    //protected $table = 'napfa_dates';
 
     protected $casts = [
       'stations' => 'array',
