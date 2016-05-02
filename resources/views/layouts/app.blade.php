@@ -47,6 +47,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+                    @can('staff')
                     <li><a href="{{ url('/napfadates') }}">NAPFA Dates</a></li>
                     <li><a href="{{ url('/schools') }}">Schools</a></li>
                     <li><a href="{{ url('/sysusers') }}">System Users</a></li>
@@ -54,6 +55,7 @@
                     <li><a href="{{ url('/mindefages') }}">MINDEF Age</a></li>
                     <li><a href="{{ url('/moecriterias') }}">MOE Criteria</a></li>
                     <li><a href="{{ url('/mindefcriterias') }}">MINDEF Criteria</a></li>
+                    @endcan
                     <li><a href="{{ url('/booktests') }}">Book Test</a></li>
                     <li><a href="{{ url('/supports') }}">Help Support</a></li>
                 </ul>
